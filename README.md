@@ -1,4 +1,4 @@
-### Talent Accelerator front-end assignment
+### front-end assignment
 
 ### React 
 
