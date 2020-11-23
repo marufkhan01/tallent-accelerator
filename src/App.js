@@ -3,8 +3,6 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import People from './components/People'
 import Search from './components/Search'
-import Info from './components/Info'
-//import StoreProvider from './components/Store'
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { Container} from 'semantic-ui-react'
@@ -12,24 +10,19 @@ import 'semantic-ui-css/semantic.min.css'
 
 import './App.css'
 
+import { fetchData } from './utils/api';
+
+
 function App() {
 
-  const [people, setPeople] = useState([])
+  const [people, setPeople] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-      async function fetchPeople(){
-        //const urls = ["https://swapi.py4e.com/api/people/?format.json", "https://swapi.py4e.com/api/planets/?format.json", "https://swapi.py4e.com/api/films/?format.json"]
-
-        //let res = await fetch(urls)
-
-      let res = await fetch('https://swapi.py4e.com/api/people/?/search=a&page=1')
-      let data = await res.json()
-      setPeople(data.results)
-      }
-      fetchPeople()
+    setLoading(true);
+    fetchData().then(response => setPeople(response));
+    setLoading(false);
   }, [])
-
-  console.log('data', people)
 
   return (
     <>
@@ -38,22 +31,18 @@ function App() {
         <Container>
           <Switch>
           <Route exact path='/'>
-            <Home data={people}/>
+            <Home people={people} loading={loading}/>
           </Route>
             <Route exact path='/people'>
-              <People data={people}/>
+              <People people={people}/>
             </Route>
             <Route exact path='/search'>
-              <Search data={people}/>
-            </Route>
-            <Route exact path='/info'>
-              <Info />
+              <Search people={people}/>
             </Route>
           </Switch>
         </Container>
       </Router>
       
-
     </>
   )
 }

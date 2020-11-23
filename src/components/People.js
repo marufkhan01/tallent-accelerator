@@ -1,18 +1,18 @@
 import React from 'react'
 import {Card, Grid } from 'semantic-ui-react'
 
-export default function People({data}) {
+export default function People({people}) {
 
     return (
         <>
             <h1>People</h1>
             <Grid columns={3} >
-               {data.map((people, i) => {
+               {people.map((person, i) => {
                    return(
                        <Grid.Column key={i}>
                            <Card>
                                <Card.Content>
-                                <Card.Header>{people.name}</Card.Header>
+                                <Card.Header>{person.name}</Card.Header>
                                 <Card.Description>
                                    <strong>Height</strong>
                                     <p>{people.height}</p>

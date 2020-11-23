@@ -1,32 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import { Grid } from 'semantic-ui-react'
-/*
-const people = [
-    "Luke Skywalker",
-    "Darth Vader",
-    "Leia Organa",
-    "Owen Lars",
-    "Beru Whitesun lars",
-    "Darth Vader",
-    "Leia Organa",
-    "R5-D4",
-    "Biggs Darklighter",
-    "Obi-Wan Kenobi"
-  ];*/
 
-export default function Search({data}) {
-  //console.log(data)
+export default function Search({people}) {
+  console.log(people)
 
     const[search, setSearch] = useState('')
     const[filterName, setFilterName]= useState([])
 
     useEffect(() => {
         const results= 
-            data.filter((person) => 
-                person.toLowerCase().includes(search.toLowerCase())
+            people.filter((person) => 
+                person.name.toLowerCase().includes(search.toLowerCase())
                 )
         setFilterName(results)
-    },[search, data])
+    },[search,people])
     
     return (
       <>
@@ -35,8 +22,8 @@ export default function Search({data}) {
         <input type="text" placeholder="Search" onChange={e=>setSearch(e.target.value)} />
       
         <ul>
-          {filterName.map((name) => (
-            <Grid>{name}</Grid>
+          {filterName.map((person,i) => (
+            <Grid key={i}>{person.name}</Grid>
           ))}
         </ul>
       </>
