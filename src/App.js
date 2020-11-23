@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
-import People from './components/PeopleInfo'
+import People from './components/People'
 import Search from './components/Search'
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
