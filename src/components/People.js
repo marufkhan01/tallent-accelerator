@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, Grid } from 'semantic-ui-react'
 
-export default function People({people}) {
+export default function PeopleInfo({people}) {
 
     return (
         <>
@@ -15,13 +15,13 @@ export default function People({people}) {
                                 <Card.Header>{person.name}</Card.Header>
                                 <Card.Description>
                                    <strong>Height</strong>
-                                    <p>{people.height}</p>
+                                    <p>{person.height}</p>
                                     <strong>Gender</strong>
-                                    <p>{people.gender}</p>
+                                    <p>{person.gender}</p>
                                     <strong>Mass</strong>
-                                    <p>{people.mass}</p>
+                                    <p>{person.mass}</p>
                                     <strong>Skin Color</strong>
-                                    <p>{people.skin_color}</p>
+                                    <p>{person.skin_color}</p>
                                 </Card.Description>
                                </Card.Content>
                            </Card>

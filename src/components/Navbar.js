@@ -9,8 +9,8 @@ const  Navbar =() => {
                <Link to='/'>
                 <Menu.Item name="Name List" />
                </Link>
-                <Link to='/People'>
-                    <Menu.Item name="People" />
+                <Link to='/PeopleInfo'>
+                    <Menu.Item name="PeopleInfo" />
                 </Link>
                 <Link to='/Search'>
                     <Menu.Item name="Search" />
